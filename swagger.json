@@ -1,0 +1,135 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "store-api overview",
+    "version": "v1"
+  },
+  "paths": {
+    "/": {
+      "get": {
+        "responses": {
+          "301": {
+            "description": "Nothing to see here"
+          }
+        }
+      }
+    },
+    "/api-docs": {
+      "get": {
+        "summary": "This site",
+        "responses": {
+          "200": {
+            "description": "Swagger-Ui for this API"
+          }
+        }
+      }
+    },
+    "/products": {
+      "get": {
+        "summary": "List all products",
+        "tags": ["product"],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "List of all products"
+          }
+        }
+      }
+    },
+    "/products/{id}": {
+      "get": {
+        "summary": "Get details of a product",
+        "tags": ["product"],
+        "parameters": [
+          {
+            "name": "id",
+            "type": "integer",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Product object"
+          },
+          "404": {
+            "description": "No Product object for this id"
+          }
+        }
+      }
+    },
+    "/price/{id}": {
+      "get": {
+        "summary": "Get price of a product",
+        "tags": ["pricing"],
+        "parameters": [
+          {
+            "name": "id",
+            "type": "integer",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Price object"
+          },
+          "404": {
+            "description": "No Price object for this id"
+          }
+        }
+      }
+    },
+    "/add-to-cart": {
+      "post": {
+        "tags": ["not ready"],
+        "responses": {
+          "501": {
+            "description": "Coming Soon"
+          }
+        }
+      }
+    },
+    "/cart/{id}": {
+      "get": {
+        "tags": ["not ready"],
+        "responses": {
+          "501": {
+            "description": "Coming Soon"
+          }
+        }
+      }
+    },
+    "/user": {
+      "get": {
+        "tags": ["not ready"],
+        "responses": {
+          "501": {
+            "description": "Coming Soon"
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "tags": ["not ready"],
+        "responses": {
+          "501": {
+            "description": "Coming Soon"
+          }
+        }
+      }
+    }
+  },
+  "consumes": [
+    "application/json"
+  ]
+}
