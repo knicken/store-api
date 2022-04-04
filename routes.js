@@ -1,5 +1,5 @@
 const products = require('./products.json');
-const prices = require('./price.json')
+const prices = require('./prices.json')
 
 module.exports.setup = (app) => {
 

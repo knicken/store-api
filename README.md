@@ -10,4 +10,6 @@ https://ac-trainee-store-api.herokuapp.com/
 - [ ] i18n
 - [ ] Login / auth
 - [ ] Cart / add-to-cart
-- [ ] More demo data
+- [x] More demo data * 
+
+* /generators/index.js for a new set of data
