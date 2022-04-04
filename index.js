@@ -23,7 +23,7 @@ const swaggerSpec = swaggerJsdoc(options);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 routes.setup(app);
-app.listen(port)
+app.listen(PORT)
 
 console.log('Running on port: ' + port)
 
