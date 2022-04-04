@@ -63,6 +63,29 @@
         }
       }
     },
+    "/products/search/{query}": {
+      "get": {
+        "summary": "Get all products which contains the query in their description",
+        "tags": ["product"],
+        "description": "Checks if the description of the product contains the query -> ⚠️ object.description.contains(query)⚠️",
+        "parameters": [
+          {
+            "name": "query",
+            "type": "string",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Products containing the query"
+          }
+        }
+      }
+    },
     "/price/{id}": {
       "get": {
         "summary": "Get price of a product",

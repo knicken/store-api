@@ -23,6 +23,10 @@ module.exports.setup = (app) => {
         }
     })
 
+    app.get('/products/search/:query', (req, res) => {
+        res.send(products.filter(product => product.description.toLowerCase().includes(req.params.query.toLowerCase())));
+    })
+
     app.get('/price/:id', (req, res) => {
         const price = prices.find(price => price.id == req.params.id);
         if (price) {
