@@ -5,7 +5,8 @@ const swaggerJsdoc = require('swagger-jsdoc');
 
 const routes = require('./routes');
 
-const port = 3000;
+const PORT = process.env.PORT || 3000;
+
 const options = {
     definition: {
         openapi: '3.0.0',
