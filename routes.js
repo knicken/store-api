@@ -24,7 +24,11 @@ module.exports.setup = (app) => {
     })
 
     app.get('/products/search/:query', (req, res) => {
-        res.send(products.filter(product => product.description.toLowerCase().includes(req.params.query.toLowerCase())));
+        const filteredProducts = products.filter(product => product.description.toLowerCase().includes(req.params.query.toLowerCase()));
+        res.send({
+            "count": filteredProducts.length,
+            "results": filteredProducts
+        });
     })
 
     app.get('/price/:id', (req, res) => {

@@ -9,15 +9,19 @@ import {
     randCompanyName,
     randAddress,
     randSocial,
-    randPhoneNumber
+    randPhoneNumber,
+    randParagraph,
+    randQuote
 } from '@ngneat/falso';
 
 let products = [];
 let prices = [];
 
-for (let i = 0; i < 500 + Math.round(Math.random() * 1000); i++) {
+for (let i = 0; i < 1000 + Math.round(Math.random() * 1000); i++) {
     let randomJunk = randJSON({length: Math.round(Math.random() * 3), max: 3});
-    let phrases = randPhrase({length: 20})
+    let phrases = randPhrase({length: 1})
+        .concat(randQuote({length: 1}))
+        .concat(randParagraph({length: 1}))
     let product = {
         "id": i,
         "title": randCatchPhrase(),
