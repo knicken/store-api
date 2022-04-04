@@ -1,10 +1,17 @@
 [
   {
     "id": 1,
-    "price": 1000.00
+    "price": 1000.00,
+    "currency": "EUR"
   },
   {
     "id": 2,
-    "price": 2500.00
+    "price": 2500.00,
+    "currency": "EUR"
+  },
+  {
+    "id": 3,
+    "price": 500.00,
+    "currency": "EUR"
   }
 ]

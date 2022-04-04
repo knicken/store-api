@@ -8,7 +8,10 @@ module.exports.setup = (app) => {
     });
 
     app.get('/products', (req, res) => {
-        res.send(products)
+        const teaserProducts = products.map(product => {
+            return {id: product.id, title: product.title, teaser: product.teaser, icon: product.icon}
+        })
+        res.send(teaserProducts)
     })
 
     app.get('/products/:id', (req, res) => {
