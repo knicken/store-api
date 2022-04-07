@@ -1,6 +1,7 @@
 # store-api
 
 ## url
+
 https://ac-trainee-store-api.herokuapp.com/
 
 ## todos
@@ -10,6 +11,11 @@ https://ac-trainee-store-api.herokuapp.com/
 - [ ] i18n
 - [ ] Login / auth
 - [ ] Cart / add-to-cart
-- [x] More demo data * 
+- [x] More demo data *
 
-* /generators/index.js for a new set of data
+<pre>
+"scripts": {
+    "start": "node index.js",
+    "generate": "npm --prefix ./generators run generate" //*
+}
+</pre>

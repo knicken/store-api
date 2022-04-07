@@ -5,22 +5,22 @@ import {
     randDomainName,
     randProductCategory,
     randJSON,
-    randCurrencyCode,
     randCompanyName,
     randAddress,
     randSocial,
     randPhoneNumber,
     randParagraph,
-    randQuote
+    randPastDate,
+    randStatus,
+    randAwsService
 } from '@ngneat/falso';
 
 let products = [];
 let prices = [];
 
-for (let i = 0; i < 1000 + Math.round(Math.random() * 1000); i++) {
+for (let i = 0; i < 1000; i++) {
     let randomJunk = randJSON({length: Math.round(Math.random() * 3), max: 3});
     let phrases = randPhrase({length: 1})
-        .concat(randQuote({length: 1}))
         .concat(randParagraph({length: 1}))
     let product = {
         "id": i,
@@ -29,20 +29,23 @@ for (let i = 0; i < 1000 + Math.round(Math.random() * 1000); i++) {
         "description": phrases.join('. '),
         "url": randDomainName(),
         "category": randProductCategory(),
-        "icon": "https://picsum.photos/200/200",
-        "image": "https://picsum.photos/400/300",
+        "icon": `https://picsum.photos/id/${i}/200/200`,
+        "image": `https://picsum.photos/id/${i}/400/300`,
         "providedBy": {
             "companyName": randCompanyName(),
             "address": randAddress(),
             "social": randSocial(),
             "phone": randPhoneNumber()
         },
+        "releaseDate": randPastDate(),
+        "status": randStatus(),
+        "service": randAwsService(),
         ...randomJunk
     };
     let price = {
         "id": i,
         "price": Math.round(Math.random() * 1000),
-        "currency": randCurrencyCode()
+        "currency": "EUR"
     };
 
     products.push(product);
