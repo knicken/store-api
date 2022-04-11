@@ -8,9 +8,12 @@ module.exports.setup = (app) => {
     });
 
     app.get('/products', (req, res) => {
-        const teaserProducts = products.map(product => {
+        let teaserProducts = products.map(product => {
             return {id: product.id, title: product.title, teaser: product.teaser, icon: product.icon}
         })
+        if (req.query.from && req.query.to) {
+            teaserProducts = teaserProducts.slice(req.query.from, req.query.to)
+        }
         res.send(teaserProducts)
     })
 
@@ -26,8 +29,13 @@ module.exports.setup = (app) => {
     app.get('/products/search/:query', (req, res) => {
         const filteredProducts = products.filter(product => product.description.toLowerCase().includes(req.params.query.toLowerCase()));
         res.send({
-            "count": filteredProducts.length,
-            "results": filteredProducts
+            "total": filteredProducts.length,
+            "count": (req.query.from && req.query.to)
+                ? filteredProducts.slice(req.query.from, req.query.to).length
+                : filteredProducts.length,
+            "results": (req.query.from && req.query.to)
+                ? filteredProducts.slice(req.query.from, req.query.to)
+                : filteredProducts
         });
     })
 
