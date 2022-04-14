@@ -40,6 +40,7 @@ for (let i = 0; i < 1000; i++) {
         "releaseDate": randPastDate(),
         "status": randStatus(),
         "service": randAwsService(),
+        "callToActions": getRandCtas(),
         ...randomJunk
     };
     let price = {
@@ -52,6 +53,18 @@ for (let i = 0; i < 1000; i++) {
     prices.push(price);
 }
 
+function getRandCtas() {
+    const ctas = ['prepaid', 'postpaid', 'monthly', 'trial', 'free'];
+    const shuffled = ctas.sort(() => 0.5 - Math.random());
+    return (shuffled.slice(0, getRandomInt(4)));
+}
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
+
+console.log(getRandomInt(3));
+// expected output: 0, 1 or 2
 
 let productsData = JSON.stringify(products);
 let priceData = JSON.stringify(prices);
