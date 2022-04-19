@@ -42,7 +42,11 @@ module.exports.setup = (app) => {
     app.get('/price/:id', (req, res) => {
         const price = prices.find(price => price.id == req.params.id);
         if (price) {
-            res.send(price);
+            if (req.query.duration) {
+                res.send({...price, price: parseInt(price.price) * parseInt(req.query.duration)});
+            } else {
+                res.send(price);
+            }
         } else {
             res.sendStatus('404');
         }

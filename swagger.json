@@ -121,6 +121,7 @@
     "/price/{id}": {
       "get": {
         "summary": "Get price of a product",
+        "description": "Use the 'duration' query param to get the price for a specified duration. ",
         "tags": [
           "pricing"
         ],
@@ -130,6 +131,13 @@
             "type": "integer",
             "in": "path",
             "required": true
+          },
+          {
+            "name": "duration",
+            "type": "integer",
+            "in": "query",
+            "required": false,
+            "description": "Duration in months"
           }
         ],
         "produces": [
